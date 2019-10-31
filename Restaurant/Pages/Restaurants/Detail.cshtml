@@ -1,0 +1,14 @@
+﻿@page "{restaurantId:int}"
+@model OdeToFood.Pages.Restaurants.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Restaurant.Name</h2>
+<div>Id: @Model.Restaurant.Id</div>
+<div>Location: @Model.Restaurant.Location</div>
+<div>Cuisine type: @Model.Restaurant.CuisineType</div>
+
+<a asp-page="./List" class="btn btn-default">Liste of Restaurants</a>
+
