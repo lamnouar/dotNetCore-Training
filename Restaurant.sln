@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Core", "Restaurant.Core\OdeToFood.Core.csproj", "{012786BD-8E98-4C7E-80A2-0DE0605F42D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Data", "Restaurant.Data\OdeToFood.Data.csproj", "{493B4D86-BC09-4FE8-BDB0-751C72BCCB29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Client", "OdeToFood.Client\OdeToFood.Client.csproj", "{70E99DB1-32E2-4FBA-8F7A-9A2497062A23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeToFood.Client", "OdeToFood.Client\OdeToFood.Client.csproj", "{70E99DB1-32E2-4FBA-8F7A-9A2497062A23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeToFood.DAL", "OdeToFood.DAL\OdeToFood.DAL.csproj", "{1D1DB942-F19E-403F-8EA5-AE98400999B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{012786BD-8E98-4C7E-80A2-0DE0605F42D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{012786BD-8E98-4C7E-80A2-0DE0605F42D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{012786BD-8E98-4C7E-80A2-0DE0605F42D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{493B4D86-BC09-4FE8-BDB0-751C72BCCB29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{493B4D86-BC09-4FE8-BDB0-751C72BCCB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{493B4D86-BC09-4FE8-BDB0-751C72BCCB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{493B4D86-BC09-4FE8-BDB0-751C72BCCB29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70E99DB1-32E2-4FBA-8F7A-9A2497062A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70E99DB1-32E2-4FBA-8F7A-9A2497062A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70E99DB1-32E2-4FBA-8F7A-9A2497062A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70E99DB1-32E2-4FBA-8F7A-9A2497062A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D1DB942-F19E-403F-8EA5-AE98400999B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D1DB942-F19E-403F-8EA5-AE98400999B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D1DB942-F19E-403F-8EA5-AE98400999B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D1DB942-F19E-403F-8EA5-AE98400999B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
