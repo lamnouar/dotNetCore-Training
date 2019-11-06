@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using OdeToFood.Core;
 using OdeToFood.Data;
 
-namespace OdeToFood.Pages.Restaurants
+namespace OdeToFood.Client.Pages.Restaurants
 {
     public class DetailModel : PageModel
     {
