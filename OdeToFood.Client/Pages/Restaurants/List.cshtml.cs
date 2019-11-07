@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
-using OdeToFood.Data;
+using OdeToFood.DAL;
 using OdeToFood.Core;
 using Microsoft.AspNetCore.Mvc;
 
