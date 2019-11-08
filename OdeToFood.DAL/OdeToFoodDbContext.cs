@@ -7,7 +7,9 @@ namespace OdeToFood.DAL
     {
         public OdeToFoodDbContext(DbContextOptions options) : base(options)
         {
+
         }
+
         public DbSet<Restaurant> Restaurants { get; set; }
     }
 }
