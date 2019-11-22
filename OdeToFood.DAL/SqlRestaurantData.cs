@@ -2,6 +2,7 @@
 using OdeToFood.Core;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace OdeToFood.DAL
 {
@@ -26,6 +27,11 @@ namespace OdeToFood.DAL
             return db.SaveChanges();
         }
 
+        public async Task<int> CommitAsync()
+        {
+            return await db.SaveChangesAsync();
+        }
+
         public Restaurant Delete(int id)
         {
             var restaurant = db.Restaurants.Find(id);
@@ -43,12 +49,27 @@ namespace OdeToFood.DAL
             return db.Restaurants.Find(id);
         }
 
+        public async Task<Restaurant> GetRestaurantByIdAsync(int id)
+        {
+            return await db.Restaurants.FindAsync(id);
+        }
+
         public IEnumerable<Restaurant> GetRestaurantsByName(string name)
         {
             return from r in db.Restaurants
                    where r.Name.StartsWith(name) || string.IsNullOrEmpty(name)
                    orderby r.Name
                    select r;
+        }
+
+        public async Task<IEnumerable<Restaurant>> GetRestaurantsByNameAsync(string name)
+        {
+            var query = from r in db.Restaurants
+                        where r.Name.StartsWith(name) || string.IsNullOrEmpty(name)
+                        orderby r.Name
+                        select r;
+
+            return await query.ToListAsync();
         }
 
         public Restaurant Update(Restaurant updatedRestaurant)

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OdeToFood.Core;
 using OdeToFood.DAL;
 using OdeToFood.Services.Filters;
@@ -29,11 +30,18 @@ namespace OdeToFood.Services.Controllers
             return Ok(_restaurantData.GetRestaurantsByName(string.Empty));
         }
 
+        //// GET: api/Restaurant/5
+        // [HttpGet("{id}", Name = "Get")]
+        // public IActionResult Get(int id)
+        // {
+        //     return Ok(_restaurantData.GetRestaurantById(id));
+        // }
+
         // GET: api/Restaurant/5
         [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
-            return Ok(_restaurantData.GetRestaurantById(id));
+           return Ok(await _restaurantData.GetRestaurantByIdAsync(id));
         }
 
         // POST: api/Restaurant
@@ -41,9 +49,6 @@ namespace OdeToFood.Services.Controllers
         [ValidateModel]
         public IActionResult Post([FromBody] Restaurant restaurant)
         {
-            //if (!ModelState.IsValid)
-            //    return new BadRequestObjectResult(ModelState);
-
             restaurant = _restaurantData.Add(restaurant);
             _restaurantData.Commit();
 
@@ -52,14 +57,45 @@ namespace OdeToFood.Services.Controllers
 
         // PUT: api/Restaurant/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Restaurant restaurant)
         {
+            if (id != restaurant.Id)
+                return BadRequest();
+
+            try
+            {
+                _restaurantData.Add(restaurant);
+                _restaurantData.Commit();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_restaurantData.GetRestaurantById(id) == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var restaurant = _restaurantData.GetRestaurantById(id);
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+
+            _restaurantData.Delete(id);
+            _restaurantData.Commit();
+
+            return Ok(restaurant);
         }
     }
 }
