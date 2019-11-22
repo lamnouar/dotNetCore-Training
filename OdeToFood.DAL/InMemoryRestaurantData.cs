@@ -1,6 +1,7 @@
 ﻿using OdeToFood.Core;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OdeToFood.DAL
 {
@@ -30,6 +31,11 @@ namespace OdeToFood.DAL
             return 0;
         }
 
+        public Task<int> CommitAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Restaurant Delete(int id)
         {
             var restauant = restaurants.FirstOrDefault(r => r.Id == id);
@@ -46,12 +52,22 @@ namespace OdeToFood.DAL
             return restaurants.SingleOrDefault(r => r.Id == id);
         }
 
+        public Task<Restaurant> GetRestaurantByIdAsync(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Restaurant> GetRestaurantsByName(string name = null)
         {
             return from r in restaurants
                    where string.IsNullOrEmpty(name) || r.Name.StartsWith(name)
                    orderby r.Name
                    select r;
+        }
+
+        public Task<IEnumerable<Restaurant>> GetRestaurantsByNameAsync(string name)
+        {
+            throw new System.NotImplementedException();
         }
 
         public Restaurant Update(Restaurant updatedRestaurant)
