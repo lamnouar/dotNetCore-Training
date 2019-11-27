@@ -31,7 +31,7 @@ namespace OdeToFood.Services.Tests
             //Assert
             var okObjectResult = Assert.IsType<OkObjectResult>(result);
             var returnedRestaurant = Assert.IsType<Restaurant>(okObjectResult.Value);
-            Assert.Equal(restaurant.Id, 0);
+            Assert.Equal(restaurant.Id, returnedRestaurant.Id);
 
         }
     }
