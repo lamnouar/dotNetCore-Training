@@ -17,6 +17,3 @@ jobs:
       run: dotnet build --configuration Release
     - name: Unit Tests
       run: dotnet test
-    - name: dotnet-sonarscanner
-      uses: Secbyte/dotnet-sonarscanner@2.0
-
