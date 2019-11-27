@@ -15,3 +15,5 @@ jobs:
         dotnet-version: 2.2.108
     - name: Build with dotnet
       run: dotnet build --configuration Release
+    - name: xUnit Slack Reporter
+      uses: ivanklee86/xunit-slack-reporter@v1.0.1
